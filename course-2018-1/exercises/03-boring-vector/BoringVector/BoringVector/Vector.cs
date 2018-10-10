@@ -13,6 +13,13 @@ namespace BoringVector
         /*
             Vector задается парой вещественных координат X и Y.
         */
+        public double x, y;
+
+        public Vector (double _x, double _y)
+        {
+            x = _x;
+            y = _y;
+        }
 
 
         /*
@@ -26,28 +33,37 @@ namespace BoringVector
 
         public double SquareLength()
         {
-            throw new NotImplementedException();
+            return Math.Sqrt(Math.Pow(y,2) + Math.Pow(x,2));
         }
         public Vector Add(Vector v)
         {
-            throw new NotImplementedException();
+            x += v.x;
+            y += v.y;
+            return this;
         }
         public Vector Scale(double k)
         {
-            throw new NotImplementedException();
+            x *= k;
+            y *= k;
+            return this;
         }
         public double DotProduct(Vector v)
         {
-            throw new NotImplementedException();
+            double prod =x * v.x + y * v.y;
+            return prod;
         }
         public double CrossProduct(Vector v)
         {
-            throw new NotImplementedException();
+            double prod = x * v.y - y * v.x;
+            return prod;
         }
-
         /*
             Переопредели ниже метод ToString - пусть выводит (X; Y)
         */
+        public override string ToString()
+        {
+            return ($"{x};{y}");
+        }
 
         #region operators
 
@@ -57,7 +73,30 @@ namespace BoringVector
                 - k * v, v * k, v / k
                 - +v, -v
         */
-
+       public static Vector operator + (Vector V, Vector u)
+        {
+            throw new NotImplementedException();
+        }
+        public static Vector operator -(Vector V, Vector u)
+        {
+            throw new NotImplementedException();
+        }
+        public static Vector operator *(Vector V, double k)
+        {
+            throw new NotImplementedException();
+        }
+        public static Vector operator /(Vector V, double k)
+        {
+            throw new NotImplementedException();
+        }
+        public static Vector operator +(Vector V)
+        {
+            throw new NotImplementedException();
+        }
+        public static Vector operator -(Vector V)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 
